@@ -1,6 +1,7 @@
 import os 
 import pygame
 import speech_recognition as sr
+from bot_scrapper import *
 
 def speak(text):
     voice = "en-US-AriaNeural"
@@ -43,22 +44,31 @@ def take_command():
         return ""
     return query
 
-speak("Hello Saksham, I am your virtual assistant. How can i assist you today!")
-query = take_command()
-print(query)
+# speak("Hello Saksham, I am your virtual assistant. How can i assist you today!")
+# query = take_command()
+# print(query)
 
+# while True:
+
+#     query = take_command().lower()
+#     print('You said: ' + query)
+
+#     if "hello" in query or "hi" in query:
+#         speak("hi , how are you")
+#     elif "i am fine" in query:
+#         speak("I am good, thank you")
+#     elif "how are you" in query:
+#         speak("I am good, thank you")
+#     elif "who are you" in query:
+#         speak("I am your virtual assistant. How can i assist you today!")
+#     elif "bye" in query:
+#         speak("Bye, have a good day!")
+
+click_on_chat_button()
 while True:
-    
     query = take_command().lower()
-    print('You said: ' + query)
-
-    if "hello" in query or "hi" in query:
-        speak("hi , how are you")
-    elif "i am fine" in query:
-        speak("I am good, thank you")
-    elif "how are you" in query:
-        speak("I am good, thank you")
-    elif "who are you" in query:
-        speak("I am your virtual assistant. How can i assist you today!")
-    elif "bye" in query:
-        speak("Bye, have a good day!")
+    print('\n You: '+query)
+    sendQuery(query)
+    isBubbleLoaderVisible()
+    response = retriveData()
+    speak(response)
