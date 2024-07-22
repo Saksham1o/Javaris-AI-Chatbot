@@ -64,6 +64,7 @@ def take_command():
 #     elif "bye" in query:
 #         speak("Bye, have a good day!")
 
+
 click_on_chat_button()
 while True:
     query = take_command().lower()
